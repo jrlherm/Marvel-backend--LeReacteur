@@ -10,12 +10,13 @@ app.get("/", (req, res) => {
   res.json({ message: "Marvel home page" });
 });
 
-// ROUTE TO LIST ALL COMICS
+// ROUTE TO GET ALL COMICS
 app.get("/comics", async (req, res) => {
   const { title } = req.query;
+
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}&title={title}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}&title=${title}`
     );
     res.json(response.data);
   } catch (error) {

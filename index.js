@@ -12,9 +12,9 @@ app.get("/", (req, res) => {
 
 // ROUTE TO GET ALL COMICS
 app.get("/comics", async (req, res) => {
-  const { limit } = req.query;
-  const { skip } = req.query;
-  const { title } = req.query;
+  const skip = parseInt(req.query.skip) || 0; // Parse the skip query parameter to an integer
+  const limit = parseInt(req.query.limit) || 20; // Set a default limit if not provided
+  const title = req.query.title || "";
 
   try {
     const response = await axios.get(

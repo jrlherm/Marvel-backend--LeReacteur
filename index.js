@@ -12,9 +12,9 @@ app.get("/", (req, res) => {
 
 // ROUTE TO GET ALL COMICS
 app.get("/comics", async (req, res) => {
-  const { limit } = req.query.limit;
-  const { skip } = req.query.skip;
-  const { title } = req.query.title;
+  const { limit } = req.query;
+  const { skip } = req.query;
+  const { title } = req.query;
 
   try {
     const response = await axios.get(

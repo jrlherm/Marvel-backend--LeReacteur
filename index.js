@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 app.get("/comics", async (req, res) => {
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}`
     );
     res.json(response.data);
   } catch (error) {
@@ -28,7 +28,7 @@ app.get("/comic/:comicId", async (req, res) => {
   const comicId = req.params.comicId;
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comic/${comicId}?apiKey=${process.env.MARVEL_API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/comic/${comicId}?apiKey=${process.env.API_KEY}`
     );
     res.json(response.data);
   } catch (error) {
@@ -44,7 +44,7 @@ app.get("/comics/:characterId", async (req, res) => {
   const characterId = req.params.characterId;
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics/${characterId}?apiKey=${process.env.MARVEL_API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics/${characterId}?apiKey=${process.env.API_KEY}`
     );
     res.json(response.data);
   } catch (error) {
@@ -57,7 +57,7 @@ app.get("/comics/:characterId", async (req, res) => {
 app.get("/characters", async (req, res) => {
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.API_KEY}`
     );
     res.json(response.data);
   } catch (error) {
@@ -73,7 +73,7 @@ app.get("/characters/:characterId", async (req, res) => {
   const characterId = req.params.characterId;
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/character/${characterId}?apiKey=${process.env.MARVEL_API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/character/${characterId}?apiKey=${process.env.API_KEY}`
     );
     res.json(response.data);
   } catch (error) {
@@ -87,6 +87,6 @@ app.get("/characters/:characterId", async (req, res) => {
 app.get("*", (req, res) => {
   res.status(404).json({ message: "this route does not exist" });
 });
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Server has started");
 });

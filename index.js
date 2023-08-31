@@ -55,9 +55,11 @@ app.get("/comics/:characterId", async (req, res) => {
 
 // ROUTE TO GET ALL CHARACTERS
 app.get("/characters", async (req, res) => {
+  const { name } = req.query;
+
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.API_KEY}&name=${name}`
     );
     res.json(response.data);
   } catch (error) {

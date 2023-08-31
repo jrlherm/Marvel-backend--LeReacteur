@@ -12,9 +12,10 @@ app.get("/", (req, res) => {
 
 // ROUTE TO LIST ALL COMICS
 app.get("/comics", async (req, res) => {
+  const { title } = req.query;
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}&title={title}`
     );
     res.json(response.data);
   } catch (error) {

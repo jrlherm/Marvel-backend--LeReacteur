@@ -12,13 +12,13 @@ app.get("/", (req, res) => {
 
 // ROUTE TO GET ALL COMICS
 app.get("/comics", async (req, res) => {
-  const { title } = req.query;
-  const { skip } = req.query;
-  const { limit } = req.query;
+  const { limit } = req.query.limit;
+  const { skip } = req.query.skip;
+  const { title } = req.query.title;
 
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}&title=${title}&skip=${skip}&limit=${limit}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.API_KEY}&limit=${limit}&skip=${skip}&title=${title}`
     );
     res.json(response.data);
   } catch (error) {

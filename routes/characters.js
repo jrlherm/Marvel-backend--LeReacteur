@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const axios = require("axios");
 
 // ROUTE TO GET ALL CHARACTERS
 router.get("/characters", async (req, res) => {

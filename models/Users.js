@@ -14,6 +14,14 @@ const User = mongoose.model("User", {
     },
     avatar: Object,
   },
+  favoritesCharacters: {
+    type: [mongoose.Schema.Types.ObjectId],
+    default: [],
+  },
+  favoritesComics: {
+    type: [mongoose.Schema.Types.ObjectId],
+    default: [],
+  },
   acceptCGU: Boolean,
   token: String,
   hash: String,

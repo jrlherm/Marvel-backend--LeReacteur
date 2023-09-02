@@ -35,9 +35,13 @@ cloudinary.config({
 const characterRoutes = require("./routes/characters");
 const comicRoutes = require("./routes/comics");
 const userRoutes = require("./routes/users");
+const userFavoritesComicsRoutes = require("./routes/favoritesComics");
+const userFavoritesCharactersRoutes = require("./routes/favoritesCharacters");
 app.use(characterRoutes);
 app.use(comicRoutes);
 app.use(userRoutes);
+app.use(userFavoritesComicsRoutes);
+app.use(userFavoritesCharactersRoutes);
 
 // HOME ROUTE
 app.get("/", (req, res) => {

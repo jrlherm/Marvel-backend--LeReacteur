@@ -20,7 +20,7 @@ router.get("/favoritesCharacters", async (req, res) => {
     console.error("Error getting character favorites:", error);
     res
       .status(500)
-      .json({ error: "An error occurred while getting character favorites" });
+      .json({ error: "An error occurred while getting character favoritees" });
   }
 });
 

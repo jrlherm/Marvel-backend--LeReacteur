@@ -47,7 +47,7 @@ router.post("/characters/add-favorite", async (req, res) => {
   }
 });
 
-router.delete("/characters/favorites", async (req, res) => {
+router.delete("/characters/remove-favorite", async (req, res) => {
   const userToken = req.query.userToken;
   const favoriteCharacterId = req.query.favoriteCharacterId;
 
